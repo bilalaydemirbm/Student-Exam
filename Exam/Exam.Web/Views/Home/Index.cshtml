@@ -1,0 +1,90 @@
+﻿@model Exam.Model.Entities.Student
+
+@{
+    Layout = null;
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Giriş-Kayıt Sayfası</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/admin/assets/images/favicon.ico">
+    <link href="~/css/login-register-page.css" rel="stylesheet" />
+    <!--Favicon-->
+    <link href="~/favicon.svg" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div class="materialContainer">
+        <div class="box">
+            @if (TempData["Message"] != null)
+            {
+                <span class="alert alert-danger " role="alert">
+                    @TempData["Message"]
+                </span>
+            }
+            <form asp-controller="Home" asp-action="Login">
+                <div class="title">Giriş</div>
+
+                <div class="input">
+                    <label for="name">Email</label>
+                    <input asp-for="Email" type="email" class="form-control" id="name">
+                    <span class="spin"></span>
+                </div>
+
+                <div class="input">
+                    <label for="pass">Şifre</label>
+                    <input asp-for="Password" type="password" class="form-control" id="pass">
+                    <span class="spin"></span>
+                </div>
+
+                <div class="button login">
+                    <button><span>Giriş Yap</span> <i class="fa fa-check"></i></button>
+                </div>
+
+                <a href="" class="pass-forgot">Şifreni mi unuttun?</a>
+
+            </form>
+
+        </div>
+
+        <div class="overbox">
+            <form asp-antiforgery="true" asp-controller="Home" asp-action="Register" enctype="multipart/form-data">
+                <div class="material-button alt-2"><span class="shape"></span></div>
+
+                <div class="title">Kayıt Ol</div>
+
+                <div style="margin:0px" class="input">
+                    <label for="regname">Mail</label>
+                    <input asp-for="Email" type="text" class="form-control" id="regname">
+                    <span class="spin"></span>
+                </div>
+
+                <div style="margin:0px" class="input">
+                    <label for="regpass">Şifre</label>
+                    <input asp-for="Password" type="password" class="form-control" id="regpass">
+                    <span class="spin"></span>
+                </div>
+
+                <div style="margin:0px" class="input">
+                    <input asp-for="ProfileImageURL" type="file" name="files" class="form-control">
+                    <span class="spin"></span>
+                </div>
+
+                <div style="margin:0px" class="button">
+                    <button><span>Onayla</span></button>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/login-register-page.js"></script>
+
+</body>
+</html>
+

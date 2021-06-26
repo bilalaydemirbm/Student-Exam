@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Exam.Model.Entities.Question>
+@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Sınav</title>
+    <link href="~/css/exam.css" rel="stylesheet" />
+    <!--Favicon-->
+    <link href="~/favicon.svg" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div class="resim" style="text-align:center;">
+        <img src="~/images/TOGU_Logo2.png" alt="Logo" style="height:150px; margin-bottom:5px;" />
+    </div>
+    <header>
+        <small>Çoktan seçmeli Matematik Soruları</small>
+    </header>
+    <div id="emc-score"></div>
+    <div class="wrap">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <section data-quiz-item>
+                    <div class="question"><img style="height:150px" src="@item.Content" /></div>
+                    <div class="choices" asp-for="@item.Answer" data-choices='["True","False"]'></div>
+                </section>
+            }
+        </div>
+        <div class="submit">
+            <button id="emc-submit">Cevapları Gönder</button>
+        </div>
+    </div>
+    <footer>
+        <div id="emc-progress"></div>
+    </footer>
+    <div class="attrib">
+        © 2021 Tüm Hakları Saklıdır.
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/exam.js"></script>
+</body>
+</html>
+

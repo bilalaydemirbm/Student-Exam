@@ -1,0 +1,111 @@
+﻿@model Exam.Model.Entities.Student
+@{
+    ViewData["Title"] = "Profil";
+}
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Profil</title>
+    <!--Favicon-->
+    <link href="~/favicon.svg" rel="shortcut icon" type="image/x-icon" />
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/css/profile.css" rel="stylesheet" />
+    <link href="~/css/mainpage.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        <a style="" asp-action="Logout" asp-controller="Home"> <button style="z-index:3; float:right;" class="custom-btn btn-5"><span><i class="fas fa-sign-out-alt"></i></span></button></a>
+    </div>
+    <br /><br /><br />
+    <div class="content-profile-page">
+        <div class="profile-user-page card">
+            <div class="img-user-profile">
+                <a asp-action="Index" asp-controller="MainPage"><button class="custom-btn btn-10">Anasayfa</button></a>
+                <img class="profile-bgHome" src="~/images/image.jpg" />
+                <img class="avatar" src="@Model.ProfileImageURL" />
+            </div>
+            <a href="" style="float:right" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+                <span><i class="fas fa-edit"></i></span>
+            </a>
+
+            <div class="user-profile-data">
+
+                <h1>@Model.Name</h1>
+                <p>@Model.Phone</p>
+                <p>@Model.Email</p>
+            </div>
+            <div class="description-profile">@Model.Department /  @Model.Class</div>
+            <ul class="data-user">
+                <li><a><strong>@*@Model.MidTermGrade*@ -</strong><span>Vize</span></a></li>
+                <li><a><strong>@*@Model.FinalGrade*@ -</strong><span>Final</span></a></li>
+                <li><a><strong>@*@Model.RetakeForFinalGrade*@ -</strong><span>Bütünleme</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <h4>&copy; 2021 Her Hakkı Saklıdır.</h4>
+    </footer>
+
+    <form asp-controller="Profile" asp-action="Update" method="post">
+        <!--Modal-->
+        <div class="container">
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Düzenle</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Name *" asp-for="@Model.Name">
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Email *" asp-for="@Model.Email">
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Password *" asp-for="@Model.Password">
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Class *" asp-for="@Model.Class">
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Department *" asp-for="@Model.Department">
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="text" placeholder="Phone *" asp-for="@Model.Phone">
+                            </div>
+                            <br />
+                            <div class="col-lg-12 col-12 mb-30">
+                                <input class="form-control" type="file" name="files" asp-for="@Model.ProfileImageURL" />
+                            </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button class="custom-btn btn-13" data-><span>Onayla</span></button>
+                            <button class="custom-btn btn-5" data-dismiss="modal"><span>İptal</span></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

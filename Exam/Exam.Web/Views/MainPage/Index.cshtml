@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>Anasayfa</title>
+    <!--Favicon-->
+    <link href="~/favicon.svg" rel="shortcut icon" type="image/x-icon" />
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/css/mainpage.css" rel="stylesheet" />
+</head>
+<body>
+    <a asp-action="Logout" asp-controller="Home"> <button style="float:right;" class="custom-btn btn-5"><span><i class="fas fa-sign-out-alt"></i></span></button></a>
+
+    <a asp-action="Index" asp-controller="Profile"><button style="float:left" class="custom-btn btn-7"><span>Profil</span></button></a>
+    <br /> <br /><br /><br /><br />
+    <header>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </header>
+
+    <h1>Hoşgeldiniz.</h1>
+    <p>Sınava başlamak için butona tıklayınız.</p>
+    <div class="frame">
+
+        <a asp-action="Index" asp-controller="Exam">
+            <button class="custom-btn btn-13">Sınava Git</button>
+        </a>
+        <p style="font-family: Andale Mono, monospace;">
+            &copy; 2021 Her Hakkı Saklıdır.
+        </p>
+    </div>
+
+</body>
+</html>

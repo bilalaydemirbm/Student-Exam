@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Exam.Core\Exam.Core.csproj" />
+    <ProjectReference Include="..\Exam.Model\Exam.Model.csproj" />
+  </ItemGroup>
+
+</Project>

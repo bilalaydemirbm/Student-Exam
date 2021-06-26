@@ -1,0 +1,19 @@
+﻿@model Exam.Core.Entity.Enums.Status
+@switch (Model)
+{
+    case Exam.Core.Entity.Enums.Status.None:
+        <span class="badge badge-primary">İşlem Yapılmadı</span>
+        break;
+    case Exam.Core.Entity.Enums.Status.Active:
+        <span class="badge badge-secondary">Aktif</span>
+        break;
+    case Exam.Core.Entity.Enums.Status.Passive:
+        <span class="badge badge-primary">Pasif</span>
+        break;
+    case Exam.Core.Entity.Enums.Status.Deleted:
+        <span class="badge badge-danger">Silindi</span>
+        break;
+    case Exam.Core.Entity.Enums.Status.Updated:
+        <span class="badge badge-info">Güncellendi</span>
+        break;
+}
